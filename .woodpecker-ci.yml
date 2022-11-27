@@ -1,0 +1,10 @@
+pipeline:
+  nix:
+    image: nixos/nix
+    commands:
+      - nix flake check
+      - nix build '.#mdbook-toc'
+    volumes:
+     - /nix/store:/nix/store
+     - /nix/var/nix/db:/nix/var/nix/db
+     - /nix/var/nix/daemon-socket:/nix/var/nix/daemon-socket
