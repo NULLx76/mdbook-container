@@ -2,7 +2,7 @@ pipeline:
   nix:
     image: nixos/nix
     environment:
-      - NIX_CONFIG="extra-experimental-features = nix-command flakes"
+      - NIX_CONFIG=experimental-features = nix-command flakes
     commands:
       - nix flake check
       - nix build '.#mdbook-toc'
