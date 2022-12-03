@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "an container for mdbook with the toc plugin";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -12,7 +12,7 @@
       in {
         packages = rec {
           docker = pkgs.dockerTools.buildLayeredImage {
-            name = "mdbook-plus";
+            name = "mdbook-container";
             contents = [
               (pkgs.buildEnv {
                 name = "mdbook-env";
