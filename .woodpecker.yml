@@ -10,7 +10,7 @@ pipeline:
       - nix flake check
       - nix build '.#mdbook-toc'
       - nix build '.#docker'
-      - cp result.tar.gz image.tar.gz
+      - cp result image.tar.gz
   publish:
     image: git.0x76.dev/v/push-container:0.2.0
     settings:
