@@ -6,3 +6,5 @@ pipeline:
     commands:
       - nix flake check
       - nix build '.#mdbook-toc'
+      - nix build '.#docker'
+

@@ -12,7 +12,12 @@
         packages = rec {
           docker = pkgs.dockerTools.buildLayeredImage {
             name = "mdbook-plus";
-            contents = mdbook-toc;
+            contents = [
+              (pkgs.buildEnv {
+                name = "mdbook-env";
+                paths = with pkgs; [ busybox mdbook mdbook-toc ];
+              })
+            ];
             config.Cmd = [ "${pkgs.mdbook}/bin/mdbook" ];
           };
           mdbook-toc = pkgs.rustPlatform.buildRustPackage rec {
