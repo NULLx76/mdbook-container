@@ -7,4 +7,12 @@ pipeline:
       - nix flake check
       - nix build '.#mdbook-toc'
       - nix build '.#docker'
-
+  publish:
+    image: git.0x76.dev/v/push-container:0.1.0
+    settings:
+      username: v
+      password:
+        from_secret: registry_password
+      repo: git.0x76.dev
+      image: git.0x76.dev/v/mdbook-dockerfile
+      tag: 0.1.0
