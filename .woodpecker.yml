@@ -7,6 +7,7 @@ pipeline:
       - nix flake check
       - nix build '.#mdbook-toc'
       - nix build '.#docker'
+      - ls -la
   publish:
     image: git.0x76.dev/v/push-container:0.1.0
     settings:
