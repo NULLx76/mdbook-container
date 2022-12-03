@@ -12,7 +12,7 @@ pipeline:
       - nix build '.#docker'
       - cp result image.tar.gz
   publish:
-    image: git.0x76.dev/v/push-container:0.2.0
+    image: git.0x76.dev/v/push-container:0.3.0
     settings:
       username: v
       password:
