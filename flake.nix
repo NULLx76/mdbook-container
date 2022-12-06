@@ -11,7 +11,7 @@
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
         packages = rec {
-          docker = pkgs.dockerTools.buildLayeredImage {
+          container = pkgs.dockerTools.buildLayeredImage {
             name = "mdbook-container";
             contents = [
               (pkgs.buildEnv {

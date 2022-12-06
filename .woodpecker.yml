@@ -1,6 +1,3 @@
-workspace:
-  base: /mdbook
-
 pipeline:
   nix:
     image: nixos/nix
@@ -9,14 +6,12 @@ pipeline:
     commands:
       - nix flake check
       - nix build '.#mdbook-toc'
-      - nix build '.#docker'
-      - cp result image.tar.gz
   publish:
-    image: git.0x76.dev/v/push-container:0.3.0
+    image: git.0x76.dev/v/push-nix-container:main
     settings:
       username: v
       password:
         from_secret: registry_password
+      package: container # nix os package to build
       repo: git.0x76.dev
       image: v/mdbook-container
-      tag: 0.1.0
