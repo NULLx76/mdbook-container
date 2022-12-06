@@ -7,7 +7,7 @@ pipeline:
       - nix flake check
       - nix build '.#mdbook-toc'
   publish:
-    image: git.0x76.dev/v/push-nix-container:main
+    image: git.0x76.dev/v/push-nix-container:0.3.3
     settings:
       username: v
       password:
