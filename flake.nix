@@ -11,6 +11,7 @@
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
         packages = rec {
+          default = mdbook-toc;
           container = pkgs.dockerTools.buildLayeredImage {
             name = "mdbook-container";
             contents = [
@@ -23,16 +24,16 @@
           };
           mdbook-toc = pkgs.rustPlatform.buildRustPackage rec {
             pname = "mdbook-toc";
-            version = "0.10.0";
+            version = "0.11.0";
 
             src = pkgs.fetchFromGitHub {
               owner = "badboy";
               repo = pname;
               rev = version;
-              sha256 = "sha256-/MPxuzqgWKyLP1fn/WoA2cKlV0TiVidt+YpNqY96sxE=";
+              sha256 = "sha256-ORJV2+Uh8GwXU+EWUQ2ls+AcplYbpYhl6hvCuFdKpTk=";
             };
 
-            cargoSha256 = "sha256-JFqkeea6o5Wzpe+2Fp+UYjBOh/e3vX1pZzCfxxfAYmU=";
+            cargoSha256 = "sha256-s+xlrHaynHTMmm7rfjYrWNlIJRHO0QTjMlcV+LjqHNs=";
           };
         };
       });
